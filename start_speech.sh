@@ -1,4 +1,4 @@
 #!/bin/bash
 
-gnome-terminal -e 'python Observer.py'
-gnome-terminal -e 'python Say.py'
+python Observer.py &>/dev/null &
+python Say.py &>/dev/null &
