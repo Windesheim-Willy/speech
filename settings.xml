@@ -1,7 +1,7 @@
 <data>
    <settings>
       <setting name="volume">0.99</setting>
-      <setting name="folder">/home/willy/Willy-Speak/DropFolder/</setting>
+      <setting name="folder">./drop/</setting>
       <setting name="filename">SpeakOut.mp3</setting>
    </settings>
 </data>
