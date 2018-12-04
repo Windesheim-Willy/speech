@@ -54,11 +54,7 @@ apt-get install -y \
 apt-get install -y \
   python
 
-pip install time
-pip install os
 pip install pygame
 pip install watchdog
-pip install xml.dom
-
 pip install gTTS
 pip install gTTS-token
