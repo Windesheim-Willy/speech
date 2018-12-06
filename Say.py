@@ -36,11 +36,7 @@ def listener():
    rospy.spin()
 
 def callback(textToSpeech):
-   if textToSpeech.data == 'aboutMe':
-      rospy.loginfo("About Willy")
-      textToSpeech.data = aboutMe()
-   else:
-      rospy.loginfo("Dit is de text: " + textToSpeech.data)
+   rospy.loginfo("Dit is de text: " + textToSpeech.data)
    tts = gTTS(text=textToSpeech.data, lang='nl')
    tts.save(getFolder() + getFileName())
 
