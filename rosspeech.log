@@ -1,0 +1,37 @@
+INFO:rospy.core:signal_shutdown [atexit]
+INFO:rospy.core:signal_shutdown [atexit]
+DEBUG:root:2018-12-11 19:11:17.535556 
+INFO:root:2018-12-11 19:11:17.535556 
+WARNING:root:2018-12-11 19:11:17.535556 
+DEBUG:root:2018-12-11 19:11:17.536166 **********************************
+INFO:root:2018-12-11 19:11:17.536166 **********************************
+WARNING:root:2018-12-11 19:11:17.536166 **********************************
+DEBUG:root:2018-12-11 19:11:17.536450 *** Willy Speech MP3 generator ***
+INFO:root:2018-12-11 19:11:17.536450 *** Willy Speech MP3 generator ***
+WARNING:root:2018-12-11 19:11:17.536450 *** Willy Speech MP3 generator ***
+DEBUG:root:2018-12-11 19:11:17.536685 **********************************
+INFO:root:2018-12-11 19:11:17.536685 **********************************
+WARNING:root:2018-12-11 19:11:17.536685 **********************************
+DEBUG:root:2018-12-11 19:11:17.536831 
+INFO:root:2018-12-11 19:11:17.536831 
+WARNING:root:2018-12-11 19:11:17.536831 
+DEBUG:root:2018-12-11 19:12:17.547854 Initializing
+INFO:root:2018-12-11 19:12:17.547854 Initializing
+WARNING:root:2018-12-11 19:12:17.547854 Initializing
+DEBUG:root:2018-12-11 19:12:17.548352 Listener start
+INFO:root:2018-12-11 19:12:17.548352 Listener start
+WARNING:root:2018-12-11 19:12:17.548352 Listener start
+INFO:root:2018-12-11 19:14:37.613639 
+INFO:root:2018-12-11 19:14:37.621060 **********************************
+INFO:root:2018-12-11 19:14:37.621274 *** Willy Speech MP3 generator ***
+INFO:root:2018-12-11 19:14:37.621358 **********************************
+INFO:root:2018-12-11 19:14:37.621422 
+INFO:root:2018-12-11 19:15:37.680909 Initializing
+INFO:root:2018-12-11 19:15:37.681139 Listener start
+INFO:root:2018-12-11 20:10:28.384967 
+INFO:rospy.core:signal_shutdown [atexit]
+INFO:root:2018-12-11 20:13:30.659015 
+INFO:root:2018-12-11 20:13:30.659391 **********************************
+INFO:root:2018-12-11 20:13:30.660939 *** Willy Speech MP3 generator ***
+INFO:root:2018-12-11 20:13:30.661049 **********************************
+INFO:root:2018-12-11 20:13:30.661122 

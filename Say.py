@@ -15,8 +15,12 @@ from std_msgs.msg import String
 def log(message):
    time = str(datetime.datetime.now())
    logging.basicConfig(filename='rosspeech.log',level=logging.DEBUG)
+   
+   logger = logging.getLogger()
+   
    logging.info(time + ' ' + message)
-   logging.handlers[0].flush()
+   logger.handlers[0].flush()
+
 
 def getFileName():
    # Read settings file
