@@ -5,15 +5,18 @@ import getopt
 import os
 import rospy
 import logging
+import time
+import datetime
 from gtts import gTTS
 from xml.dom import minidom
 from std_msgs.msg import String
 
 def log(message):
+   time = datetime.datetime.now()
    logging.basicConfig(filename='rosspeech.log',level=logging.DEBUG)
-   logging.debug(message)
-   logging.info(message)
-   logging.warning(message)
+   logging.debug(time + ' ' + message)
+   logging.info(+ ' ' +message)
+   logging.warning(+ ' ' +message)
 
 def getFileName():
    # Read settings file
@@ -56,4 +59,11 @@ if __name__ == "__main__":
    print('*** Willy Speech MP3 generator ***')
    print('**********************************')
    print('')
+   log('')
+   log('**********************************')
+   log('*** Willy Speech MP3 generator ***')
+   log('**********************************')
+   log('')
+   time.sleep(60)
+   log('Initializing')
    main(sys.argv[1:])
