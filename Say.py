@@ -15,12 +15,7 @@ from std_msgs.msg import String
 def log(message):
    time = str(datetime.datetime.now())
    logging.basicConfig(filename='rosspeech.log',level=logging.DEBUG)
-   
-   logger = logging.getLogger()
-   
    logging.info(time + ' ' + message)
-   logger.handlers[0].flush()
-
 
 def getFileName():
    # Read settings file
@@ -54,19 +49,17 @@ def getSleepTime():
 
 def listener():
    log("Listener start")
+   log("From here all logging will be in ~/.ros/log")
+   
    rospy.init_node('sayText', anonymous=True)
-   log("Listener initialized")
+   rospy.loginfo("Listener initialized")
    rospy.Subscriber("/speech", String, callback)
-
-   #while not rospy.core.is_shutdown():
-      #log('test spk')
-      #rospy.rostime.wallsleep(2)
-   #rospy.spin()
+   rospy.spin()
 
 def callback(textToSpeech):
    html_parser = HTMLParser.HTMLParser()
    unescaped = html_parser.unescape(textToSpeech.data)
-   log("Saving MP3 with text: " + unescaped)
+   rospy.loginfo("Saving MP3 with text: " + unescaped)
    tts = gTTS(text=textToSpeech.data, lang='nl')
    tts.save(getFolder() + getFileName())
 
@@ -84,6 +77,11 @@ if __name__ == "__main__":
    log('*** Willy Speech MP3 generator ***')
    log('**********************************')
    log('')
-   time.sleep(getSleepTime())
+
+   sleepTime = getSleepTime()
+   log('Startup delay is set to ' + str(sleepTime) + ' seconds')
+   time.sleep(sleepTime)
+
    log('Willy Speech Initializing')
+
    main(sys.argv[1:])
