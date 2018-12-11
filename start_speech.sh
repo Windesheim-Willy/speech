@@ -1,4 +1,4 @@
 #!/bin/bash
 
-lxterminal --command="python Say.py"
-lxterminal --command="python Observer.py"
+python Say.py &>/dev/null &
+python Observer.py &>/dev/null &
