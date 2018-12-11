@@ -12,11 +12,9 @@ from xml.dom import minidom
 from std_msgs.msg import String
 
 def log(message):
-   time = datetime.datetime.now()
+   time = str(datetime.datetime.now())
    logging.basicConfig(filename='rosspeech.log',level=logging.DEBUG)
-   logging.debug(time + ' ' + message)
-   logging.info(+ ' ' +message)
-   logging.warning(+ ' ' +message)
+   logging.info(time + ' ' + message)
 
 def getFileName():
    # Read settings file
