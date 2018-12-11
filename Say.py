@@ -7,6 +7,7 @@ import rospy
 import logging
 import time
 import datetime
+import HTMLParser
 from gtts import gTTS
 from xml.dom import minidom
 from std_msgs.msg import String
@@ -44,7 +45,9 @@ def listener():
    rospy.spin()
 
 def callback(textToSpeech):
-   log("Saving MP3 with text: " + textToSpeech.data)
+   html_parser = HTMLParser.HTMLParser()
+   unescaped = html_parser.unescape(textToSpeech.data)
+   log("Saving MP3 with text: " + unescaped)
    tts = gTTS(text=textToSpeech.data, lang='nl')
    tts.save(getFolder() + getFileName())
 
