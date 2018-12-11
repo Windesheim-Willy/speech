@@ -4,9 +4,16 @@ import sys
 import getopt
 import os
 import rospy
+import logging
 from gtts import gTTS
 from xml.dom import minidom
 from std_msgs.msg import String
+
+def log(message):
+   logging.basicConfig(filename='rosspeech.log',level=logging.DEBUG)
+   logging.debug(message)
+   logging.info(message)
+   logging.warning(message)
 
 def getFileName():
    # Read settings file
@@ -29,18 +36,14 @@ def getFolder():
    return folder
 
 def listener():
-   print("Listener start")
+   log("Listener start")
    rospy.init_node('sayText', anonymous=True)
-   print("Listener initialized")
+   log("Listener initialized")
    rospy.Subscriber("/speech", String, callback)
    rospy.spin()
 
 def callback(textToSpeech):
-   if textToSpeech.data == 'aboutMe':
-      rospy.loginfo("About Willy")
-      textToSpeech.data = aboutMe()
-   else:
-      rospy.loginfo("Dit is de text: " + textToSpeech.data)
+   log("Saving MP3 with text: " + textToSpeech.data)
    tts = gTTS(text=textToSpeech.data, lang='nl')
    tts.save(getFolder() + getFileName())
 
