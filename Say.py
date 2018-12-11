@@ -63,5 +63,5 @@ if __name__ == "__main__":
    log('**********************************')
    log('')
    time.sleep(60)
-   log('Initializing')
+   log('Willy Speech Initializing')
    main(sys.argv[1:])
