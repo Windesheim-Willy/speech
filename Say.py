@@ -16,6 +16,7 @@ def log(message):
    time = str(datetime.datetime.now())
    logging.basicConfig(filename='rosspeech.log',level=logging.DEBUG)
    logging.info(time + ' ' + message)
+   logger.handlers[0].flush()
 
 def getFileName():
    # Read settings file
