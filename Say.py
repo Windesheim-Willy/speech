@@ -58,10 +58,9 @@ def listener():
    log("Listener initialized")
    rospy.Subscriber("/speech", String, callback)
 
-   while not rospy.core.is_shutdown():
-      log('test spk')
-      rospy.rostime.wallsleep(2)
-
+   #while not rospy.core.is_shutdown():
+      #log('test spk')
+      #rospy.rostime.wallsleep(2)
    #rospy.spin()
 
 def callback(textToSpeech):
