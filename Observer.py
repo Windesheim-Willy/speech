@@ -1,11 +1,16 @@
 import time
 import os
 import pygame
-
+import logging
 from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
 from pygame import mixer
 from xml.dom import minidom
+
+def log(message):
+   time = str(datetime.datetime.now())
+   logging.basicConfig(filename='rosspeech.log',level=logging.DEBUG)
+   logging.info(time + ' ' + message)
 
 def GetVolume():
    # Read settings file
@@ -29,7 +34,7 @@ def GetFolder():
 
 def CleanFolder():
    # Clean folder
-   print("delete files from folder")
+   log("delete files from folder")
    mydir =  GetFolder()
    filelist = [ f for f in os.listdir(mydir) if f.endswith(".mp3") ]
    for f in filelist:
@@ -49,7 +54,7 @@ class Watcher:
             time.sleep(5) #time in seconds
       except:
          self.observer.stop()
-         print "Error"
+         log "Error"
 
       self.observer.join()
 
@@ -61,12 +66,12 @@ class Handler(FileSystemEventHandler):
 
       elif event.event_type == 'created':
          # Notify on reception of file and initialize
-         print "Received file - %s." % event.src_path
+         log "Received file - %s." % event.src_path
          mixer.init()
 
          # Get volume setting
          mixer.music.set_volume(float(GetVolume()))
-         print("volume: " + str(pygame.mixer.music.get_volume()))
+         log("volume: " + str(pygame.mixer.music.get_volume()))
 
          # Play file
          mixer.music.load(event.src_path)
@@ -74,7 +79,7 @@ class Handler(FileSystemEventHandler):
 
          # Clean up folder
          os.remove(event.src_path)
-         print("File Removed!")
+         log("File Removed!")
 
 if __name__ == '__main__':
    print('')
@@ -82,6 +87,11 @@ if __name__ == '__main__':
    print('*** Willy Speech Observer ***')
    print('*****************************')
    print('')
+   log('')
+   log('*****************************')
+   log('*** Willy Speech Observer ***')
+   log('*****************************')
+   log('')
    CleanFolder()
    w = Watcher()
    w.run()
