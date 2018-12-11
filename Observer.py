@@ -9,7 +9,7 @@ from xml.dom import minidom
 
 def log(message):
    time = str(datetime.datetime.now())
-   logging.basicConfig(filename='rosspeech.log',level=logging.DEBUG)
+   logging.basicConfig(filename='rosObserver.log',level=logging.DEBUG)
    logging.info(time + ' ' + message)
 
 def GetVolume():

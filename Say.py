@@ -14,7 +14,7 @@ from std_msgs.msg import String
 
 def log(message):
    time = str(datetime.datetime.now())
-   logging.basicConfig(filename='rosspeech.log',level=logging.DEBUG)
+   logging.basicConfig(filename='rosSay.log',level=logging.DEBUG)
    logging.info(time + ' ' + message)
 
 def getFileName():
@@ -50,7 +50,7 @@ def getSleepTime():
 def listener():
    log("Listener start")
    log("From here all logging will be in ~/.ros/log")
-   
+
    rospy.init_node('sayText', anonymous=True)
    rospy.loginfo("Listener initialized")
    rospy.Subscriber("/speech", String, callback)
