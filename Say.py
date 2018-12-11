@@ -42,12 +42,27 @@ def getFolder():
          folder = setting.firstChild.data
    return folder
 
+def getSleepTime():
+   # Read settings file
+   xmlDoc = minidom.parse('settings.xml')
+   settings = xmlDoc.getElementsByTagName('setting')
+   time = 0.0
+   for setting in settings:
+      if  setting.attributes['name'].value == 'sleep':
+         time = setting.firstChild.data
+   return float(time)
+
 def listener():
    log("Listener start")
    rospy.init_node('sayText', anonymous=True)
    log("Listener initialized")
    rospy.Subscriber("/speech", String, callback)
-   rospy.spin()
+
+   while not rospy.core.is_shutdown():
+      log('test spk')
+      rospy.rostime.wallsleep(2)
+
+   #rospy.spin()
 
 def callback(textToSpeech):
    html_parser = HTMLParser.HTMLParser()
@@ -70,6 +85,6 @@ if __name__ == "__main__":
    log('*** Willy Speech MP3 generator ***')
    log('**********************************')
    log('')
-   time.sleep(60)
+   time.sleep(getSleepTime())
    log('Willy Speech Initializing')
    main(sys.argv[1:])

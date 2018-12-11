@@ -3,5 +3,6 @@
       <setting name="volume">0.99</setting>
       <setting name="folder">./drop/</setting>
       <setting name="filename">SpeakOut.mp3</setting>
+      <setting name="sleep">2</setting>
    </settings>
 </data>
