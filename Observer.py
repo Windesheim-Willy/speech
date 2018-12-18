@@ -8,9 +8,9 @@ from pygame import mixer
 from xml.dom import minidom
 
 def log(message):
-   time = str(datetime.datetime.now())
+   #time = str(datetime.datetime.now())
    logging.basicConfig(filename='rosObserver.log',level=logging.DEBUG)
-   logging.info(time + ' ' + message)
+   #logging.info(time + ' ' + message)
 
 def GetVolume():
    # Read settings file
@@ -54,7 +54,7 @@ class Watcher:
             time.sleep(5) #time in seconds
       except:
          self.observer.stop()
-         log "Error"
+        # log "Error"
 
       self.observer.join()
 
@@ -66,7 +66,7 @@ class Handler(FileSystemEventHandler):
 
       elif event.event_type == 'created':
          # Notify on reception of file and initialize
-         log "Received file - %s." % event.src_path
+        # log "Received file - %s." % event.src_path
          mixer.init()
 
          # Get volume setting
